@@ -1,15 +1,16 @@
 #!/usr/bin/python3
-""" checking if all boxes in the list of list can be opened """
+'''Lock boxes iterate algorithm'''
 
 
 def canUnlockAll(boxes):
-    """ determine if all boxes can be opened """
-    for key in range(1, len(boxes) - 1):
-        res = False
-        for index in range(len(boxes)):
-            res = key in boxes[index] and key != index
-            if res:
+    '''Compares the key with the set box index'''
+    count_boxes = len(boxes)
+    for set_box in range(1, count_boxes):
+        all_box = False
+        for key in range(count_boxes):
+            all_box = set_box in boxes[key] and set_box != key
+            if all_box:
                 break
-        if res is False:
-            return res
+        if all_box is False:
+            return all_box
     return True
